@@ -1,72 +1,48 @@
 #include "lists.h"
 
-listint_t *reverse_listint(listint_t **head);
-int is_palindrome(listint_t **head);
-
 /**
- * reverse_listint - Reverses a singly-linked listint_t list.
- * @head: A pointer to the starting node of the list to reverse.
- *
- * Return: A pointer to the head of the reversed list.
- */
-listint_t *reverse_listint(listint_t **head)
-{
-	listint_t *node = *head, *next, *prev = NULL;
-
-	while (node)
-	{
-		next = node->next;
-		node->next = prev;
-		prev = node;
-		node = next;
-	}
-
-	*head = prev;
-	return (*head);
-}
-
-/**
- * is_palindrome - Checks if a singly linked list is a palindrome.
- * @head: A pointer to the head of the linked list.
- *
- * Return: If the linked list is not a palindrome - 0.
- *         If the linked list is a palindrome - 1.
+ * is_palindrome - checks if a singly linked list is a palindrome
+ * @head: a pointer to a pointer to the first node in the list
+ * Return: a 0 if it is not a palindrome and 1 if it is
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *tmp, *rev, *mid;
-	size_t size = 0, i;
+	listint_t *tmp;
 
+	if (head == NULL)
+		return (0);
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-
 	tmp = *head;
-	while (tmp)
-	{
-		size++;
-		tmp = tmp->next;
-	}
-
-	tmp = *head;
-	for (i = 0; i < (size / 2) - 1; i++)
-		tmp = tmp->next;
-
-	if ((size % 2) == 0 && tmp->n != tmp->next->n)
+	if (is_palindrome_check(*head, tmp))
+		return (1);
+	else
 		return (0);
+}
 
-	tmp = tmp->next->next;
-	rev = reverse_listint(&tmp);
-	mid = rev;
+/**
+ * is_palindrome_check - checks if a linked list is a palindrome
+ * @head: a pointer to the first element of a list
+ * @tmp: a pointer to be iterated
+ * Return: a null pointer if not a palindrome and not null if palindrome
+ */
+listint_t *is_palindrome_check(listint_t *head, listint_t *tmp)
+{
+	listint_t *ret;
 
-	tmp = *head;
-	while (rev)
+	if (tmp == NULL)
+		return (head);
+	else
 	{
-		if (tmp->n != rev->n)
-			return (0);
-		tmp = tmp->next;
-		rev = rev->next;
+		ret = is_palindrome_check(head, tmp->next);
+		if (ret == NULL)
+			return (NULL);
+		if (ret->n == tmp->n && ret->next)
+			return (ret->next);
+		else if (ret->n == head->n)
+			return (ret);
+		else
+			return (NULL);
 	}
-	reverse_listint(&mid);
-
-	return (1);
+	return (NULL);
 }
