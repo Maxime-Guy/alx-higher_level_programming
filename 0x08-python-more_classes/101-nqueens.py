@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 # 101-nqueens.py
-
 """Solves the N-queens puzzle.
 Determines all possible solutions to placing N
 N non-attacking queens on an NxN chessboard.
-Exampe:
-   $ ./101-l nqueens.py N
+Example:
+    $ ./101-nqueens.py N
 N must be an integer greater than or equal to 4.
 Attributes:
     board (list): A list of lists representing the chessboard.
@@ -17,11 +16,11 @@ queen must be placed on the chessboard.
 import sys
 
 
-definit_oard(n):
-    """Initializan `n`x`n` sized be  chessboard with 0's."""
+def init_board(n):
+    """Initialize an `n`x`n` sized chessboard with 0's."""
     board = []
-    [board.append([])for i in range(n)]
-    [row.append(' ' ) for i in range(n) for row in board]
+    [board.append([]) for i in range(n)]
+    [row.append(' ') for i in range(n) for row in board]
     return (board)
 
 
@@ -56,8 +55,8 @@ def xout(board, row, col):
     for c in range(col + 1, len(board)):
         board[row][c] = "x"
     # X out all backwards spots
-for c in range(col - 1, -1, -1):
-            board[row][c] = "x"
+    for c in range(col - 1, -1, -1):
+        board[row][c] = "x"
     # X out all spots below
     for r in range(row + 1, len(board)):
         board[r][col] = "x"
