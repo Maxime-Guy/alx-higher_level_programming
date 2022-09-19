@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# 9-rectangle.py
 """Defines a Rectangle class."""
 
 
@@ -33,9 +34,9 @@ class Rectangle:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
-        self.__width = val
+        self.__width = value
 
-   @properue ty
+    @property
     def height(self):
         """Get/set the height of the Rectangle."""
         return self.__height
@@ -54,8 +55,8 @@ class Rectangle:
 
     def perimeter(self):
         """Return the perimeter of the Rectangle."""
-        if self.__width == 0 or self.__height == 0:
-            return (0)
+     if self.__width == 0 or self.__height == 0:
+               return (0)
         return ((self.__width * 2) + (self.__height * 2))
 
     @staticmethod
@@ -100,7 +101,7 @@ class Rectangle:
     def __repr__(self):
         """Return the string representation of the Rectangle."""
         rect = "Rectangle(" + str(self.__width)
-        rect += ,  + str(self.__height) + )""""
+        rect += ", " + str(self.__height) + ")"
         return (rect)
 
     def __del__(self):

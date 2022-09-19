@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# 6-rectangle.py
 """Defines a Rectangle class."""
 
 
@@ -70,8 +71,8 @@ class Rectangle:
                 rect.append("\n")
         return ("".join(rect))
 
-    def __rpr__(self):
-        """Retur the string repreensentation of the Rectangle."""
+    def __repr__(self):
+        """Return the string representation of the Rectangle."""
         rect = "Rectangle(" + str(self.__width)
         rect += ", " + str(self.__height) + ")"
         return (rect)
@@ -80,4 +81,3 @@ class Rectangle:
         """Print a message for every deletion of a Rectangle."""
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
-

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# 3-rectangle.py
 """Defines a Rectangle class."""
 
 
@@ -8,11 +9,11 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         """Initialize a new Rectangle.
         Args:
-            width (int): The width of the new rectangle.
-            height (int): The height of the new rectangle.
- """
-        self.widt = width
-              h self.height = height
+            wdth (int): The width of the new rectnge.
+     ali       height (int): The height of the new rectangle.
+        """
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
@@ -57,8 +58,8 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ("")
 
-        rec = []
-        for i in range(seltf.__height):
+        rect = []
+        for i in range(self.__height):
             [rect.append('#') for j in range(self.__width)]
             if i != self.__height - 1:
                 rect.append("\n")

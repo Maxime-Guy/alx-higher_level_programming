@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+# 7-rectangle.py
 """Defines a Rectangle class."""
 
 
@@ -37,8 +37,8 @@ class Rectangle:
         self.__width = value
 
     @property
-    dfheight(self):
-        """Get/set the hee ight of the Rectangle."""
+    def height(self):
+        """Get/set the height of the Rectangle."""
         return self.__height
 
     @height.setter
@@ -49,8 +49,8 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__height = value
 
-    def areaself):
-        ""Return t are("hea of the Rectangle."""
+    def area(self):
+        """Return the area of the Rectangle."""
         return (self.__width * self.__height)
 
     def perimeter(self):

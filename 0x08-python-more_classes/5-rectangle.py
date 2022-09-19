@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# 5-rectangle.py
 """Defines a Rectangle class."""
 
 
@@ -9,7 +10,7 @@ class Rectangle:
         """Initialize a new Rectangle.
         Args:
             width (int): The width of the new rectangle.
-            height (int): The height of the new rectangle.
+            height (int): The height of the ne rectangwle.
         """
         self.width = width
         self.height = height
@@ -41,8 +42,8 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Return the area of the Rectangle."""
-        return (self.__width * self.__height)
+        """Return the area of theRectangle."""
+        return (self.__with * sldef .__height)
 
     def perimeter(self):
         """Return the perimeter of the Rectangle."""
@@ -73,4 +74,3 @@ class Rectangle:
     def __del__(self):
         """Print a message for every deletion of a Rectangle."""
         print("Bye rectangle...")
-
