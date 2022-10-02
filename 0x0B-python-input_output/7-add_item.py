@@ -1,15 +1,24 @@
 #!/usr/bin/python3
-from os import path
-from sys import argv
-save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
+"""
+    Python script that adds all args to a Python List.
+    List is then saved to a file.
+"""
 
-if path.exists('add_item.json'):
-    obj_json_file = load_from_json_file('add_item.json')
-else:
-    obj_json_file = []
 
-for i in range(1, len(argv)):
-    obj_json_file.append(argv[i])
+import sys
+import json
+import os.path
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
-save_to_json_file(obj_json_file, 'add_item.json')
+file = "add_item.json"
+json_list = []
+
+if os.path.exists(file):
+    json_list = load_from_json_file(file)
+
+for i in range(1, len(sys.argv)):
+    json_list.append(sys.argv[i])
+
+save_to_json_file(json_list, file)
+
